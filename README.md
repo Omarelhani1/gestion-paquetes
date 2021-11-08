@@ -32,7 +32,29 @@ Instalamos el paquete descargado
 <pre>rpm -ivh epel-release-latest-8.noarch.rpm</pre>
 
 ![yumprepolist](/images/yumrepolist.png)
-* Instala el paquete que proporciona el programa dig, explicando los pasos que has dado para encontrarlo     
+
+Para instalar el repositorio CentOSPlus tenemos que editar el fichero /etc/yum.repos.d/CentOS-Linux-BaseOS.repo  y sustituir el bloque de CentOSPlus que viene por defecto por este otro:
+
+<pre>[centosplus]
+name=CentOS-$releasever - Plus
+mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=centosplus
+#baseurl=http://mirror.centos.org/centos/$releasever/centosplus/$basearch/
+gpgcheck=1
+enabled=1
+gpgkey=http://mirror.centos.org/centos/RPM-GPG-KEY-centos5
+includepkgs=postfix-*
+exclude=postfix-*plus*
+</pre>
+
+Añadimos el bloque a las secciones base y update y para que no obtenga paquetes postfix.
+
+<pre>exclude=postfix-*</pre>
+
+
+* Instala el paquete que proporciona el programa dig, explicando los pasos que has dado para encontrarlo
+Bind-utils también instala otras utilidades esenciales como nslookup, host, nsupdate, etc. aparte de dig.
+Para instalarlo ejecutamos lo siguiente:
+<pre>dnf -y install bind-utils</pre>
 * Explica qué comando utilizarías para ver la información del paquete kernel instalado     
 * Instala el repositorio adicional "elrepo" e instala el último núcleo disponible del mismo (5.9.X)     
 * Busca las versiones disponibles para instalar del núcleo linux e instala la más nueva     
