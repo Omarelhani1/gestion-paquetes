@@ -1,4 +1,4 @@
-h1. Gestión de paquetes
+h1.gestion-paquetes
 * Gestión de paquetes      
 * Modifica la configuración de red de DHCP a estática     
 * Actualiza el sistema a las versiones más recientes de los paquetes instalados     
