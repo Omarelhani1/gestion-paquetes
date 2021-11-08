@@ -1,6 +1,9 @@
 # gestion-paquetes
-* Gestión de paquetes      
-* Modifica la configuración de red de DHCP a estática     
+Gestión de paquetes
+
+* Modifica la configuración de red de DHCP a estática
+Para ello vamos a modificar el fichero /etc/sysconfig/network-scripts/ifcfg-enp1s0 en mi caso ya que la interfaz de mi red se llama enp1s0.
+![conf_red](/images/conf_red.png){widght='200px'}
 * Actualiza el sistema a las versiones más recientes de los paquetes instalados     
 * Instala los repositorios adicionales EPEL y CentOSPlus     
 * Instala el paquete que proporciona el programa dig, explicando los pasos que has dado para encontrarlo     
