@@ -30,6 +30,7 @@ Nos bajamos primero el archivo .rpm con wget:
 <pre>wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm</pre>
 Instalamos el paquete descargado
 <pre>rpm -ivh epel-release-latest-8.noarch.rpm</pre>
+
 ![yumprepolist](/images/yumrepolist.png)
 * Instala el paquete que proporciona el programa dig, explicando los pasos que has dado para encontrarlo     
 * Explica qué comando utilizarías para ver la información del paquete kernel instalado     
