@@ -52,6 +52,7 @@ Añadimos el bloque a las secciones base y update y para que no obtenga paquetes
 
 
 * Instala el paquete que proporciona el programa dig, explicando los pasos que has dado para encontrarlo
+
 Bind-utils también instala otras utilidades esenciales como nslookup, host, nsupdate, etc. aparte de dig.
 Para instalarlo ejecutamos lo siguiente:
 <pre>dnf -y install bind-utils</pre>
