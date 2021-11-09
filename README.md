@@ -58,7 +58,8 @@ Para instalarlo ejecutamos lo siguiente:
 <pre>dnf -y install bind-utils</pre>
 
 * Explica qué comando utilizarías para ver la información del paquete kernel instalado
-
+* Busca las versiones disponibles para instalar del núcleo linux e instala la más nueva.
+* Muestra el contenido del paquete del último núcleo instalado.
 Con el siguiente comando
 <pre>[centos@localhost ~]$ rpm -q kernel
 kernel-4.18.0-305.19.1.el8_4.x86_64
@@ -95,7 +96,20 @@ Para ver los paquetes del kernel disponible ejecutamos:
 
 ![kernel](/images/kernel.png)
 
+Ahora mismo la mas reciente es la 5.15.1
 
-* Busca las versiones disponibles para instalar del núcleo linux e instala la más nueva
+Para instalarl ejecutamos:
 
-* Muestra el contenido del paquete del último núcleo instalado
+<pre>yum --enablerepo=elrepo-kernel install kernel-ml</pre>
+
+Seguidamente tendremos que configurar el grub para que seleccione el kernel de manera predeterminada, para ello modificamos el fichero /etc/default/grub/ y cambiamos los línea **GRUB_DEFAULT** a **0**
+
+Para la acutalización del grub ejecutamos:
+<pre>grub2-mkconfig -o /boot/grub2/grub.cfg</pre>
+
+Reinicimos el sistema:
+
+Y:
+
+![kernelnuevo](/images/kernelnuevo.png)
+
