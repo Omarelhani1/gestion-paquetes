@@ -58,8 +58,6 @@ Para instalarlo ejecutamos lo siguiente:
 <pre>dnf -y install bind-utils</pre>
 
 * Explica qué comando utilizarías para ver la información del paquete kernel instalado
-* Busca las versiones disponibles para instalar del núcleo linux e instala la más nueva.
-* Muestra el contenido del paquete del último núcleo instalado.
 Con el siguiente comando
 <pre>[centos@localhost ~]$ rpm -q kernel
 kernel-4.18.0-305.19.1.el8_4.x86_64
@@ -70,6 +68,9 @@ Para mostrar la versión del kernel utilizado ahora mismo:
 Linux localhost.localdomain 4.18.0-305.25.1.el8_4.x86_64 #1 SMP Wed Nov 3 10:29:07 UTC 2021 x86_64 x86_64 x86_64 GNU/Linux
 [centos@localhost ~]$</pre> 
 * Instala el repositorio adicional "elrepo" e instala el último núcleo disponible del mismo (5.9.X)
+* Busca las versiones disponibles para instalar del núcleo linux e instala la más nueva.
+* Muestra el contenido del paquete del último núcleo instalado.
+
 El primer paso para habilitar este repositorio consiste en importar la llave GPG.
 <pre>rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org</pre>
 Utilizamos rpm para habilitar el repositorio.
