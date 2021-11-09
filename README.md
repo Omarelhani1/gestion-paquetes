@@ -56,7 +56,42 @@ Añadimos el bloque a las secciones base y update y para que no obtenga paquetes
 Bind-utils también instala otras utilidades esenciales como nslookup, host, nsupdate, etc. aparte de dig.
 Para instalarlo ejecutamos lo siguiente:
 <pre>dnf -y install bind-utils</pre>
-* Explica qué comando utilizarías para ver la información del paquete kernel instalado     
-* Instala el repositorio adicional "elrepo" e instala el último núcleo disponible del mismo (5.9.X)     
-* Busca las versiones disponibles para instalar del núcleo linux e instala la más nueva     
+
+* Explica qué comando utilizarías para ver la información del paquete kernel instalado
+Con el siguiente comando
+<pre>[centos@localhost ~]$ rpm -q kernel
+kernel-4.18.0-305.19.1.el8_4.x86_64
+kernel-4.18.0-305.25.1.el8_4.x86_64
+[centos@localhost ~]$ </pre>
+Para mostrar la versión del kernel utilizado ahora mismo:
+<pre>[centos@localhost ~]$ uname -a
+Linux localhost.localdomain 4.18.0-305.25.1.el8_4.x86_64 #1 SMP Wed Nov 3 10:29:07 UTC 2021 x86_64 x86_64 x86_64 GNU/Linux
+[centos@localhost ~]$</pre> 
+* Instala el repositorio adicional "elrepo" e instala el último núcleo disponible del mismo (5.9.X)
+El primer paso para habilitar este repositorio consiste en importar la llave GPG.
+<pre>rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org</pre>
+Utilizamos rpm para habilitar el repositorio.
+<pre>[root@localhost centos]# rpm -ivh https://www.elrepo.org/elrepo-release-8.el8.elrepo.noarch.rpm
+Recuperando https://www.elrepo.org/elrepo-release-8.el8.elrepo.noarch.rpm
+Verifying...                          ################################# [100%]
+Preparando...                         ################################# [100%]
+Actualizando / instalando...
+   1:elrepo-release-8.2-1.el8.elrepo  ################################# [100%]
+[root@localhost centos]# 
+</pre>
+Verficamos que se ha instalado:
+<pre>[root@localhost centos]# yum repolist
+id del repositorio                                       nombre del repositorio
+appstream                                                CentOS Linux 8 - AppStream
+baseos                                                   CentOS Linux 8 - BaseOS
+elrepo                                                   ELRepo.org Community Enterprise Linux Repository - el8
+epel                                                     Extra Packages for Enterprise Linux 8 - x86_64
+epel-modular                                             Extra Packages for Enterprise Linux Modular 8 - x86_64
+extras                                                   CentOS Linux 8 - Extras
+[root@localhost centos]#</pre> 
+Para ver los paquetes del kernel disponible ejecutamos:
+<pre>yum --disablerepo="*" --enablerepo="elrepo-kernel" list available</pre>
+
+* Busca las versiones disponibles para instalar del núcleo linux e instala la más nueva
+
 * Muestra el contenido del paquete del último núcleo instalado
